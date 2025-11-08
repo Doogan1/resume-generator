@@ -111,6 +111,97 @@
       "linked_experience": [
         "purdue-university-fort-wayne"
       ]
+    },
+    {
+      "id": "ai-users-group-survey-dashboard",
+      "name": "AI Users Group Survey Dashboard",
+      "year": "2024",
+      "description_short": "Built a lightweight ETL pipeline to collect and visualize regional survey data on AI readiness across Michigan local governments.",
+      "bullets": [
+        "Designed end-to-end workflow connecting Jotform → Google Sheets → Google Apps Script → Looker Studio to enable near-real-time data flow.",
+        "Automated extraction and cleaning of form submissions to reduce manual processing and support frequent updates.",
+        "Normalized multi-select survey fields by producing cleaned and long table structures for robust analysis.",
+        "Developed an interactive Looker Studio dashboard with filters, role-based segmentation, and participation metrics for stakeholders.",
+        "Delivered a transparent, maintainable data pipeline that enabled public-sector teams to explore AI engagement trends statewide."
+      ],
+      "skills_used": [
+        "jotform",
+        "etl-extract-transform-load",
+        "data-pipeline-development",
+        "survey-data-analysis",
+        "looker-studio",
+        "google-apps-script",
+        "google-sheets-automation",
+        "dashboard-design",
+        "cloud-collaboration-tools"
+      ],
+      "linked_experience": [
+        "van-buren-county-digital-information"
+      ]
+    },
+    {
+      "id": "van-buren-county-website-modernization",
+      "name": "Van Buren County Website Modernization",
+      "year": "2024–2025",
+      "description_short": "Comprehensive modernization of Van Buren County’s digital infrastructure, rebuilding the public website and backend systems to improve accessibility, automation, and long-term maintainability.",
+      "bullets": [
+        "Led migration from CivicPlus to a custom WordPress environment (CityGov child theme) with custom plugins supporting county operations, improving maintainability and accessibility.",
+        "Built and maintained plugins for county directory, notice banners, bids & RFPs manager, and public notices, reducing manual publishing tasks and standardizing content.",
+        "Replaced Airtable workflows with a unified PostgreSQL (PostGIS) County Knowledge Base, designing schemas for people, departments, roles, and content to enable structured data access.",
+        "Automated ingestion, cleanup, and bi-directional synchronization between WordPress, Google Sheets, and Airtable using Python scripts, Google Apps Script, and Power Automate, cutting data reconciliation time.",
+        "Integrated AI/chatbot systems (OpenAI API, Chatbase, custom ingestion) to power the county assistant “Marty,” enabling dynamic queries against the County Knowledge Base.",
+        "Implemented GitHub-based pipeline with staging/production sync, WP-CLI automation, and SSH deployments to enforce version-controlled releases and rollback capability.",
+        "Collaborated cross-departmentally (Administration, IT, Treasurer, Sheriff) to align digital workflows with operational needs and compliance, increasing departmental content ownership.",
+        "Improved public communication and transparency with structured content models, accessible templates, sitewide alerts, and department-level editing workflows."
+      ],
+      "skills_used": [
+        "wordpress-stack",
+        "plugin-architecture",
+        "php",
+        "javascript-elementor-d3",
+        "postgresql-postgis",
+        "data-architecture",
+        "python-automation",
+        "etl-pipelines",
+        "api-integration",
+        "google-apps-script-google-sheets-automation",
+        "power-automate",
+        "ai-integration-openai-chatbase",
+        "github-actions-deployment-automation",
+        "systems-design-ux-for-government"
+      ],
+      "linked_experience": [
+        "van-buren-county-digital-information"
+      ]
+    },
+    {
+      "id": "ai-task-force-meetings",
+      "name": "AI Task Force Meetings",
+      "year": "2024–2025",
+      "description_short": "Coordinated and documented the Van Buren County AI Task Force to align departments around a unified, responsible, and transparent approach to AI adoption in government operations.",
+      "bullets": [
+        "Facilitated cross-department collaboration between administrative, IT, and public service divisions to identify practical AI and automation opportunities, resulting in prioritized pilot initiatives.",
+        "Developed shared language, policy frameworks, and governance principles to guide ethical, transparent AI adoption across departments.",
+        "Synthesized technical and policy discussions into accessible summaries and actionable next steps for leadership, accelerating decision-making and pilot approvals.",
+        "Supported creation of communication strategies, newsletters, and internal briefings to increase staff awareness and engagement with AI initiatives.",
+        "Defined evaluation standards for pilot AI systems balancing innovation with data privacy, compliance, and operational readiness.",
+        "Established documentation and data structures for meeting transcripts, outcomes, and ongoing project tracking to ensure continuity and institutional learning."
+      ],
+      "skills_used": [
+        "ai-policy-and-governance",
+        "ethical-ai-framework-development",
+        "cross-department-collaboration",
+        "strategic-communication",
+        "technical-writing-and-documentation",
+        "stakeholder-engagement",
+        "change-management",
+        "organizational-alignment",
+        "leadership-facilitation",
+        "knowledge-management"
+      ],
+      "linked_experience": [
+        "van-buren-county-digital-information"
+      ]
     }
   ],
   "skills": {
@@ -126,6 +217,30 @@
       {
         "id": "matlab",
         "label": "MATLAB"
+      },
+      {
+        "id": "etl-extract-transform-load",
+        "label": "ETL (Extract-Transform-Load)"
+      },
+      {
+        "id": "data-pipeline-development",
+        "label": "Data Pipeline Development"
+      },
+      {
+        "id": "survey-data-analysis",
+        "label": "Survey Data Analysis"
+      },
+      {
+        "id": "data-architecture",
+        "label": "Data Architecture"
+      },
+      {
+        "id": "python-automation",
+        "label": "Python Automation"
+      },
+      {
+        "id": "etl-pipelines",
+        "label": "ETL Pipelines"
       }
     ],
     "ai_automation": [
@@ -140,6 +255,26 @@
       {
         "id": "prompt-engineering",
         "label": "Prompt Engineering"
+      },
+      {
+        "id": "jotform",
+        "label": "Jotform"
+      },
+      {
+        "id": "power-automate",
+        "label": "Power Automate"
+      },
+      {
+        "id": "ai-integration-openai-chatbase",
+        "label": "AI Integration (OpenAI, Chatbase)"
+      },
+      {
+        "id": "ai-policy-and-governance",
+        "label": "AI Policy and Governance"
+      },
+      {
+        "id": "ethical-ai-framework-development",
+        "label": "Ethical AI Framework Development"
       }
     ],
     "web_cloud": [
@@ -154,6 +289,62 @@
       {
         "id": "azure-sql-looker",
         "label": "Azure SQL, Looker Studio"
+      },
+      {
+        "id": "looker-studio",
+        "label": "Looker Studio"
+      },
+      {
+        "id": "google-apps-script",
+        "label": "Google Apps Script"
+      },
+      {
+        "id": "google-sheets-automation",
+        "label": "Google Sheets Automation"
+      },
+      {
+        "id": "dashboard-design",
+        "label": "Dashboard Design"
+      },
+      {
+        "id": "cloud-collaboration-tools",
+        "label": "Cloud Collaboration Tools"
+      },
+      {
+        "id": "plugin-architecture",
+        "label": "Plugin Architecture"
+      },
+      {
+        "id": "php",
+        "label": "PHP"
+      },
+      {
+        "id": "javascript-elementor-d3",
+        "label": "JavaScript (Elementor, D3)"
+      },
+      {
+        "id": "postgresql-postgis",
+        "label": "PostgreSQL / PostGIS"
+      },
+      {
+        "id": "api-integration",
+        "label": "API Integration"
+      },
+      {
+        "id": "google-apps-script-google-sheets-automation",
+        "label": "Google Apps Script / Google Sheets Automation"
+      },
+      {
+        "id": "github-actions-deployment-automation",
+        "label": "GitHub Actions / Deployment Automation"
+      },
+      {
+        "id": "systems-design-ux-for-government",
+        "label": "Systems Design / UX for Government"
+      },
+      {
+        "id": "knowledge-management",
+        "label": "Knowledge Management"
       }
     ],
     "communication": [
@@ -168,6 +359,34 @@
       {
         "id": "technical-documentation",
         "label": "Technical Documentation"
+      },
+      {
+        "id": "cross-department-collaboration",
+        "label": "Cross-Department Collaboration"
+      },
+      {
+        "id": "strategic-communication",
+        "label": "Strategic Communication"
+      },
+      {
+        "id": "technical-writing-and-documentation",
+        "label": "Technical Writing and Documentation"
+      },
+      {
+        "id": "stakeholder-engagement",
+        "label": "Stakeholder Engagement"
+      },
+      {
+        "id": "change-management",
+        "label": "Change Management"
+      },
+      {
+        "id": "organizational-alignment",
+        "label": "Organizational Alignment"
+      },
+      {
+        "id": "leadership-facilitation",
+        "label": "Leadership Facilitation"
       }
     ]
   }

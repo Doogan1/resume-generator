@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from collections import defaultdict
 from copy import deepcopy
-from typing import Any, Dict, List
+from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-from .base import JsonFile, ensure_unique_id
+from .base import JsonFile, ensure_unique_id, slugify
 
 
 class MasterStore:
@@ -108,6 +108,66 @@ class MasterStore:
             if text:
                 bullets.append(text)
         return bullets
+
+    def _skills_catalog(self, data) -> Dict[str, List[Dict[str, Any]]]:
+        return data.setdefault("skills", {})
+
+    def _normalize_skill_label(self, label: str) -> str:
+        return label.strip()
+
+    # ------------------------------------------------------------------
+    # Skills helpers
+    # ------------------------------------------------------------------
+    def ensure_skills(self, skills: Iterable[Dict[str, str]]) -> List[str]:
+        """
+        Ensure the provided skills (category + label) exist.
+        Returns list of skill IDs in the same order as input.
+        """
+        skills = list(skills)
+        if not skills:
+            return []
+
+        data = self._read()
+        catalog = self._skills_catalog(data)
+        result_ids: List[str] = []
+        mutated = False
+
+        for entry in skills:
+            category = (entry.get("category") or "general").strip() or "general"
+            label = self._normalize_skill_label(entry.get("label", ""))
+            if not label:
+                continue
+
+            category_entries = catalog.setdefault(category, [])
+            existing = None
+            for item in category_entries:
+                if item.get("label", "").strip().lower() == label.lower():
+                    existing = item
+                    break
+            if existing:
+                result_ids.append(existing["id"])
+                continue
+
+            existing_ids = {item.get("id") for item in category_entries if item.get("id")}
+            skill_id = ensure_unique_id(label, existing_ids)
+            new_entry = {"id": skill_id, "label": label}
+            category_entries.append(new_entry)
+            result_ids.append(skill_id)
+            mutated = True
+
+        if mutated:
+            self._write(data)
+
+        return result_ids
+
+    def find_skill(self, label: str) -> Optional[Tuple[str, Dict[str, Any]]]:
+        data = self._read()
+        normalized = label.strip().lower()
+        for category, entries in data.get("skills", {}).items():
+            for entry in entries:
+                if entry.get("label", "").strip().lower() == normalized:
+                    return category, deepcopy(entry)
+        return None
 
     # ------------------------------------------------------------------
     # Projects
@@ -235,6 +295,22 @@ class MasterStore:
 
         self._write(data)
         return {"deleted": skill_id, "category": category}
+
+    # ------------------------------------------------------------------
+    # Experience helpers
+    # ------------------------------------------------------------------
+    def find_experience_id(self, identifier: str) -> Optional[str]:
+        identifier = (identifier or "").strip()
+        if not identifier:
+            return None
+        data = self._read()
+        identifier_slug = slugify(identifier)
+        for item in data.get("experience", []):
+            if item.get("id") == identifier:
+                return item["id"]
+            if slugify(item.get("company", "")) == identifier_slug:
+                return item["id"]
+        return None
 
     # ------------------------------------------------------------------
     # Experience

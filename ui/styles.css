@@ -151,6 +151,12 @@ button.secondary {
   border-color: #4c6ef5;
 }
 
+.list .empty {
+  padding: 0.6rem 0.75rem;
+  color: #6b7380;
+  font-style: italic;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -199,5 +205,80 @@ table thead {
 
 .error-text {
   color: #c62828;
+}
+
+.resume-preview {
+  width: 100%;
+  min-height: 520px;
+  border: 1px solid #d0d7e5;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.cover-letter {
+  border: 1px solid #d0d7e5;
+  border-radius: 6px;
+  padding: 1rem;
+  background: #f8f9fb;
+  white-space: pre-wrap;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.95rem;
+}
+
+.cover-letter-empty {
+  padding: 0.6rem 0.75rem;
+  background: #f8f9fb;
+  border: 1px dashed #cfd6e4;
+  border-radius: 6px;
+  color: #5f6b7c;
+}
+
+.resume-detail form textarea {
+  min-height: 100px;
+}
+
+.code-block {
+  font-family: "SFMono-Regular", Consolas, "Courier New", monospace;
+  min-height: 320px;
+  white-space: pre;
+}
+
+.resume-html-editor {
+  margin-top: 1rem;
+}
+
+.resume-html-editor summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.resume-meta {
+  margin-bottom: 1rem;
+}
+
+.resume-meta input[type="text"] {
+  margin-bottom: 0.5rem;
+}
+
+.hint {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #5f6b7c;
+}
+
+.skill-block .list ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.skill-block .list li {
+  margin: 2px 0;
+}
+
+.resume-detail .meta-line {
+  color: #5f6b7c;
+  font-size: 0.9rem;
+  margin-top: -0.6rem;
 }
 

@@ -7,12 +7,22 @@ const state = {
   selectedProjectId: null,
   selectedJobSlug: null,
   currentJob: null,
+  resumeGenerations: [],
+  selectedResumeId: null,
+  currentResume: null,
+  prompts: {
+    project_extra_instruction: "",
+    resume_extra_instruction: "",
+    cover_letter_extra_instruction: "",
+  },
 };
 
 const viewFns = {
   projects: renderProjectsView,
   skills: renderSkillsView,
   jobs: renderJobsView,
+  resume: renderResumeView,
+  settings: renderSettingsView,
 };
 
 const container = document.getElementById("view-container");
@@ -28,7 +38,15 @@ document.querySelectorAll(".tab-button").forEach((button) => {
 
 async function init() {
   try {
-    await Promise.all([loadProjects(), loadSkills(), loadExperience(), loadJobs(), loadSummaries()]);
+    await Promise.all([
+      loadProjects(),
+      loadSkills(),
+      loadExperience(),
+      loadJobs(),
+      loadSummaries(),
+      loadResumeGenerations(),
+      loadPrompts(),
+    ]);
     renderView("projects");
   } catch (error) {
     setStatus(error.message || "Failed to load initial data", true);
@@ -93,6 +111,68 @@ async function loadJobs() {
 async function loadSummaries() {
   const { data } = await apiRequest("/api/summaries");
   state.summaries = data || [];
+}
+
+async function loadPrompts() {
+  const { data } = await apiRequest("/api/prompts");
+  state.prompts = data || state.prompts;
+}
+
+async function loadResumeGenerations() {
+  const { data } = await apiRequest("/api/ai/resumes");
+  state.resumeGenerations = data || [];
+}
+
+async function loadResumeDetail(resumeId) {
+  const { data } = await apiRequest(`/api/ai/resumes/${resumeId}`);
+  state.currentResume = data || null;
+  return state.currentResume;
+}
+
+async function requestCoverLetter(resumeId, { instructions = "", coverLetter = null } = {}) {
+  const body = {};
+  if (coverLetter !== null) {
+    body.cover_letter = coverLetter;
+  } else {
+    body.instructions = instructions;
+  }
+  const { data } = await apiRequest(`/api/ai/resumes/${resumeId}/cover-letter`, {
+    method: "POST",
+    body: JSON.stringify(body),
+  });
+  return data;
+}
+
+async function saveResumeHtml(resumeId, resumeHtml) {
+  const { data } = await apiRequest(`/api/ai/resumes/${resumeId}/resume`, {
+    method: "PUT",
+    body: JSON.stringify({ resume_html: resumeHtml }),
+  });
+  return data;
+}
+
+async function saveResumeMetadata(resumeId, updates) {
+  const { data } = await apiRequest(`/api/ai/resumes/${resumeId}`, {
+    method: "PUT",
+    body: JSON.stringify(updates),
+  });
+  return data;
+}
+
+async function exportResumePdfs(resumeId) {
+  const { data } = await apiRequest(`/api/ai/resumes/${resumeId}/export`, {
+    method: "POST",
+  });
+  return data;
+}
+
+async function savePrompts(updates) {
+  const { data } = await apiRequest("/api/prompts", {
+    method: "PUT",
+    body: JSON.stringify(updates),
+  });
+  state.prompts = data || state.prompts;
+  return state.prompts;
 }
 
 // ---------------------------------------------------------------------------
@@ -196,8 +276,12 @@ function projectFormHtml(project) {
         ${experienceCheckboxes(project.linked_experience || [])}
       </div>
 
+      <label>AI Prompt Context</label>
+      <textarea name="ai_context" placeholder="Paste raw notes, metrics, or snippets for the AI helper"></textarea>
+
       <div class="button-row">
         <button type="submit" class="primary">Save Project</button>
+        <button type="button" class="secondary" data-action="ai-generate">AI Rewrite</button>
         <button type="button" class="secondary" id="delete-project-btn">Delete Project</button>
       </div>
     </form>
@@ -231,8 +315,12 @@ function renderProjectCreationForm() {
         ${experienceCheckboxes([])}
       </div>
 
+      <label>AI Prompt Context</label>
+      <textarea name="ai_context" placeholder="Paste raw notes, metrics, or snippets for the AI helper"></textarea>
+
       <div class="button-row">
         <button type="submit" class="primary">Create Project</button>
+        <button type="button" class="secondary" data-action="ai-generate">Draft with AI</button>
       </div>
     </form>
   `;
@@ -280,6 +368,43 @@ function experienceCheckboxes(selected) {
 function bindProjectForm(project) {
   const form = container.querySelector("#project-form");
   if (!form) return;
+
+  const aiButton = form.querySelector('[data-action="ai-generate"]');
+  if (aiButton) {
+    aiButton.addEventListener("click", async () => {
+      const contextField = form.querySelector('[name="ai_context"]');
+      const context = contextField ? contextField.value.trim() : "";
+      if (!context) {
+        setStatus("Provide AI context before requesting a draft.", true);
+        return;
+      }
+      aiButton.disabled = true;
+      setStatus("Requesting AI assistance...");
+      try {
+        const payload = { context };
+        if (project && project.id) {
+          payload.project_id = project.id;
+        }
+        const response = await apiRequest("/api/ai/projects", {
+          method: "POST",
+          body: JSON.stringify(payload),
+        });
+        const { data: projectData, meta } = response;
+        await Promise.all([loadProjects(), loadSkills()]);
+        state.selectedProjectId = projectData.id;
+        setStatus(
+          meta?.action === "created"
+            ? `AI created project "${projectData.name}".`
+            : `AI updated project "${projectData.name}".`
+        );
+        renderProjectsView();
+      } catch (error) {
+        setStatus(error.message, true);
+      } finally {
+        aiButton.disabled = false;
+      }
+    });
+  }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -850,7 +975,401 @@ function bindJobForm(job) {
 }
 
 // ---------------------------------------------------------------------------
-// Boot
+// Resume Generator
 // ---------------------------------------------------------------------------
+async function createResumeGeneration(jobAd) {
+  const { data } = await apiRequest("/api/ai/resumes", {
+    method: "POST",
+    body: JSON.stringify({ job_ad: jobAd }),
+  });
+  return data;
+}
+
+async function deleteResumeGeneration(resumeId) {
+  await apiRequest(`/api/ai/resumes/${resumeId}`, { method: "DELETE" });
+}
+
+function renderResumeView() {
+  const detail = state.currentResume;
+  container.innerHTML = `
+    <section class="pane">
+      <h2>Generate Resume & Cover Letter</h2>
+      <form id="resume-form">
+        <label>Job Description / Posting</label>
+        <textarea name="job_ad" placeholder="Paste the job posting here..." required></textarea>
+        <div class="button-row">
+          <button type="submit" class="primary">Generate Package</button>
+          <button type="button" class="secondary" id="refresh-resumes-btn">Refresh History</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="pane grid two">
+      <div>
+        <h2>Previous Generations</h2>
+        <ul class="list" id="resume-list">
+          ${
+            state.resumeGenerations.length
+              ? state.resumeGenerations
+                  .map(
+                    (item) => `
+              <li>
+                <button data-resume-id="${item.id}" class="${item.id === state.selectedResumeId ? "active" : ""}">
+                  <strong>${item.job_title || "(Untitled role)"}</strong><br>
+                  <small>${formatTimestamp(item.created_at)}</small>
+                </button>
+              </li>`
+                  )
+                  .join("")
+              : '<li class="empty">No generated resumes yet.</li>'
+          }
+        </ul>
+      </div>
+      <div id="resume-detail">
+        ${
+          detail
+            ? `
+          <div class="resume-detail">
+            <h2>${detail.job_title || "Generated Resume"}</h2>
+            <p class="meta-line">Created ${formatTimestamp(detail.created_at)}</p>
+            ${
+              detail.skill_labels && detail.skill_labels.length
+                ? `<p><strong>Skills highlighted:</strong> ${detail.skill_labels.join(", ")}</p>`
+                : ""
+            }
+            <form id="resume-meta-form" class="resume-meta">
+              <label>Package Title</label>
+              <input type="text" name="job_title" value="${escapeHtml(detail.job_title || "")}">
+              <div class="button-row">
+                <button type="submit" class="secondary">Save Title</button>
+                <button type="button" class="secondary" id="open-resume-html-btn">Open Resume in Browser</button>
+                <button type="button" class="secondary" id="open-cover-letter-btn">Open Cover Letter</button>
+                <button type="button" class="secondary" id="export-pdfs-btn">Export PDFs</button>
+              </div>
+            </form>
+            ${
+              detail.resume_pdf_path || detail.cover_letter_pdf_path
+                ? `<p class="hint">
+                    Latest export:
+                    ${
+                      detail.resume_pdf_path
+                        ? `<code>${detail.resume_pdf_path}</code>`
+                        : "Resume PDF pending"
+                    } |
+                    ${
+                      detail.cover_letter_pdf_path
+                        ? `<code>${detail.cover_letter_pdf_path}</code>`
+                        : "Cover letter PDF pending"
+                    }
+                  </p>`
+                : ""
+            }
+            <p>${escapeHtml(detail.summary || "")}</p>
+            <div class="button-row">
+              <button type="button" class="secondary" id="delete-resume-btn">Delete</button>
+            </div>
+            <h3>Resume Preview</h3>
+            <iframe id="resume-preview" class="resume-preview"></iframe>
+            <details class="resume-html-editor">
+              <summary>Edit Resume HTML</summary>
+              <form id="resume-html-form">
+                <label>Resume HTML</label>
+                <textarea name="resume_html" class="code-block" spellcheck="false">${escapeHtml(
+                  detail.resume_html || ""
+                )}</textarea>
+                <div class="button-row">
+                  <button type="submit" class="secondary">Save Resume HTML</button>
+                </div>
+              </form>
+            </details>
+            <h3>Cover Letter</h3>
+            <form id="cover-letter-form">
+              <label>Cover Letter Text</label>
+              <textarea name="cover_letter_text">${escapeHtml(detail.cover_letter || "")}</textarea>
+              <label>AI Guidance (optional)</label>
+              <textarea name="instructions" placeholder="Focus on honesty, reference specific projects, etc."></textarea>
+              <div class="button-row">
+                <button type="submit" class="primary" data-action="save">Save Cover Letter</button>
+                <button type="submit" class="secondary" data-action="generate">${
+                  detail.cover_letter ? "Regenerate with AI" : "Generate with AI"
+                }</button>
+              </div>
+            </form>
+          </div>`
+            : "<p>Select a generated resume to preview.</p>"
+        }
+      </div>
+    </section>
+  `;
+
+  const form = container.querySelector("#resume-form");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const jobAd = formData.get("job_ad");
+    if (!jobAd) {
+      setStatus("Provide a job description to generate a resume.", true);
+      return;
+    }
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    setStatus("Generating resume package...");
+    try {
+      const record = await createResumeGeneration(jobAd);
+      await loadResumeGenerations();
+      state.selectedResumeId = record.id;
+      state.currentResume = record;
+      setStatus(
+        `Created resume for ${record.job_title || record.id}. Generate a cover letter when you're ready.`
+      );
+      renderResumeView();
+    } catch (error) {
+      setStatus(error.message, true);
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  const refreshBtn = container.querySelector("#refresh-resumes-btn");
+  refreshBtn.addEventListener("click", async () => {
+    try {
+      await loadResumeGenerations();
+      setStatus("Refreshed generated resume list.");
+      renderResumeView();
+    } catch (error) {
+      setStatus(error.message, true);
+    }
+  });
+
+  container.querySelectorAll("[data-resume-id]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      state.selectedResumeId = button.dataset.resumeId;
+      try {
+        await loadResumeDetail(state.selectedResumeId);
+        renderResumeView();
+      } catch (error) {
+        setStatus(error.message, true);
+      }
+    });
+  });
+
+  const deleteBtn = container.querySelector("#delete-resume-btn");
+  if (deleteBtn && detail) {
+    deleteBtn.addEventListener("click", async () => {
+      if (!confirm("Delete this generated resume package?")) return;
+      try {
+        await deleteResumeGeneration(detail.id);
+        await loadResumeGenerations();
+        state.currentResume = null;
+        state.selectedResumeId = null;
+        setStatus("Deleted generated resume.");
+        renderResumeView();
+      } catch (error) {
+        setStatus(error.message, true);
+      }
+    });
+  }
+
+  const metaForm = container.querySelector("#resume-meta-form");
+  if (metaForm && detail) {
+    metaForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(metaForm);
+      const jobTitle = formData.get("job_title") || "";
+      const submitBtn = metaForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      setStatus("Saving title...");
+      try {
+        const updated = await saveResumeMetadata(detail.id, { job_title: jobTitle });
+        state.currentResume = updated;
+        await loadResumeGenerations();
+        setStatus("Title saved.");
+        renderResumeView();
+      } catch (error) {
+        setStatus(error.message, true);
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    const resumeUrl = `/api/ai/resumes/${detail.id}/resume-html`;
+    const coverUrl = `/api/ai/resumes/${detail.id}/cover-letter-txt`;
+
+    const openResumeBtn = metaForm.querySelector("#open-resume-html-btn");
+    if (openResumeBtn) {
+      openResumeBtn.addEventListener("click", () => {
+        window.open(resumeUrl, "_blank", "noopener");
+      });
+    }
+
+    const openCoverBtn = metaForm.querySelector("#open-cover-letter-btn");
+    if (openCoverBtn) {
+      openCoverBtn.addEventListener("click", () => {
+        window.open(coverUrl, "_blank", "noopener");
+      });
+    }
+
+    const exportBtn = metaForm.querySelector("#export-pdfs-btn");
+    if (exportBtn) {
+      exportBtn.addEventListener("click", async () => {
+        exportBtn.disabled = true;
+        setStatus("Exporting PDFs...");
+        try {
+          const updated = await exportResumePdfs(detail.id);
+          state.currentResume = updated;
+          await loadResumeGenerations();
+          setStatus("Exported PDFs.");
+          renderResumeView();
+        } catch (error) {
+          setStatus(error.message, true);
+        } finally {
+          exportBtn.disabled = false;
+        }
+      });
+    }
+  }
+
+  const resumeHtmlForm = container.querySelector("#resume-html-form");
+  if (resumeHtmlForm && detail) {
+    resumeHtmlForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(resumeHtmlForm);
+      const resumeHtml = formData.get("resume_html") || "";
+      const submitBtn = resumeHtmlForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      setStatus("Saving resume HTML...");
+      try {
+        const updated = await saveResumeHtml(detail.id, resumeHtml);
+        state.currentResume = updated;
+        await loadResumeGenerations();
+        setStatus("Resume HTML saved.");
+        renderResumeView();
+      } catch (error) {
+        setStatus(error.message, true);
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  const coverForm = container.querySelector("#cover-letter-form");
+  if (coverForm && detail) {
+    coverForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submitBtn = event.submitter || coverForm.querySelector('button[type="submit"]');
+      if (!submitBtn) return;
+      const action = submitBtn.dataset.action || "save";
+      const formData = new FormData(coverForm);
+      const coverLetterText = formData.get("cover_letter_text") || "";
+      const instructions = formData.get("instructions") || "";
+      submitBtn.disabled = true;
+      setStatus(action === "save" ? "Saving cover letter..." : "Generating cover letter...");
+      try {
+        const updated =
+          action === "save"
+            ? await requestCoverLetter(detail.id, { coverLetter: coverLetterText })
+            : await requestCoverLetter(detail.id, { instructions });
+        state.currentResume = updated;
+        await loadResumeGenerations();
+        setStatus(action === "save" ? "Cover letter saved." : "Cover letter ready.");
+        renderResumeView();
+      } catch (error) {
+        setStatus(error.message, true);
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  const iframe = container.querySelector("#resume-preview");
+  if (iframe && detail) {
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+    if (iframeDoc) {
+      iframeDoc.open();
+      iframeDoc.write(detail.resume_html || "<p>Resume HTML not available.</p>");
+      iframeDoc.close();
+    } else {
+      iframe.srcdoc = detail.resume_html || "<p>Resume HTML not available.</p>";
+    }
+  }
+}
+
+function renderSettingsView() {
+  const prompts = state.prompts || {};
+  container.innerHTML = `
+    <section class="pane">
+      <h2>Prompt Settings</h2>
+      <form id="prompt-form" class="grid">
+        <div>
+          <label>Project Generation Guidance</label>
+          <textarea name="project_extra_instruction" placeholder="Extra system instructions for project drafting...">${escapeHtml(
+            prompts.project_extra_instruction || ""
+          )}</textarea>
+        </div>
+        <div>
+          <label>Resume Generation Guidance</label>
+          <textarea name="resume_extra_instruction" placeholder="Extra system instructions for resume drafting...">${escapeHtml(
+            prompts.resume_extra_instruction || ""
+          )}</textarea>
+        </div>
+        <div>
+          <label>Cover Letter Guidance</label>
+          <textarea name="cover_letter_extra_instruction" placeholder="Extra system instructions for cover letters...">${escapeHtml(
+            prompts.cover_letter_extra_instruction || ""
+          )}</textarea>
+        </div>
+        <div class="button-row">
+          <button type="submit" class="primary">Save Prompts</button>
+        </div>
+      </form>
+      <p class="hint">
+        These instructions are appended to the system prompts before each AI call. Use them to reinforce tone, honesty, or other preferences. You can still pass extra guidance per cover letter when generating one.
+      </p>
+    </section>
+  `;
+
+  const form = container.querySelector("#prompt-form");
+  if (form) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const updates = {
+        project_extra_instruction: formData.get("project_extra_instruction") || "",
+        resume_extra_instruction: formData.get("resume_extra_instruction") || "",
+        cover_letter_extra_instruction: formData.get("cover_letter_extra_instruction") || "",
+      };
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      setStatus("Saving prompt settings...");
+      try {
+        await savePrompts(updates);
+        setStatus("Prompt settings saved.");
+      } catch (error) {
+        setStatus(error.message, true);
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+}
+
 init();
 
+function formatTimestamp(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+  return date.toLocaleString();
+}
+
+function escapeHtml(text) {
+  if (text == null) return "";
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}

@@ -1,0 +1,215 @@
+{
+  "items": [
+    {
+      "id": "target-role",
+      "job_title": "Target Role",
+      "created_at": "2025-11-08T19:54:52Z",
+      "job_ad": "This is for a Data Engineer I job title at Indeed/Glassdoor:\n\nFull job description\nOur Mission\nAs the world’s number 1 job site*, our mission is to help people get jobs. We strive to cultivate an inclusive and accessible workplace where all people feel comfortable being themselves. We're looking to grow our teams with more people who share our enthusiasm for innovation and creating the best experience for job seekers.\n\nThis role sits within Glassdoor, where professionals go to zero in on the next step in their career. Rooted in transparency and trust, we have long empowered people to make informed career decisions. We combine authentic employee voices with insights about companies and AI-driven personalization to help job seekers find roles where they can grow and thrive.\nJoin us as we make worklife better, together.\n(*Comscore, Total Visits, March 2025)\nDay to Day\nThe Data Engineer’s role is to integrate data from a variety of sources into common data domain models. The purpose is to support data and analytics activities across Glassdoor and Indeed’s global business functions. This is a technical role that involves defining changes to the data lake data model and building scalable and efficient processes to populate or modify data lake data. You will have practical data processing and data modeling experience in a “big data” environment. Also, experience in data modeling, test automation, and building reliable, trusted, and efficient data pipelines. This work contributes to our mission of helping people get jobs by providing insight into the global job market and supporting product innovation. That makes it easier for job seekers and employers to find each other.\nResponsibilities\nDesigning and implementing data pipelines (ETLs) to integrate data from a variety of sources into the Glassdoor (Indeed) Data Warehouse\nDesigning and implementing data model changes, working cross-functionally with various product and data teams\nProviding documentation, training, and consulting for data warehouse users\nParticipating in on-call rotation supporting critical business data pipelines\nSkills/Competencies\nB.S. degree in Computer Science, Computer Engineering, Electrical Engineering, Mathematics, Statistics\n1+ years of experience with big data and streaming technologies (Snowflake, Redshift, Hive, Kafka, Spark, Flink or similar technologies)\nExposure to workflow orchestration and pipeline tools such as Airflow\n2+ years coding experience (Python or Scala preferred)\nPassionate about data and learning new skills and technologies",
+      "summary": "Data engineer with hands-on experience designing ETL pipelines, building data integrations, and operationalizing data products for public-sector and research environments. Proven record implementing durable automation, cleaning and normalizing heterogeneous sources, and enabling reporting and analytics for stakeholders.",
+      "resume_html": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>Drake Olejniczak – Target Role</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <style>* { box-sizing: border-box; }\nbody { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, \"Noto Sans\", \"Helvetica Neue\", sans-serif; color: #0a0a0a; margin: 0; }\n.container { max-width: 850px; margin: 0 auto; padding: 16px 20px; min-height: 0; }\n.header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); padding: 12px; border-radius: 8px; border: 1px solid #e9ecef; margin-bottom: 4px; }\nh1 { font-size: 28px; margin: 0 0 4px; letter-spacing: 0.3px; color: #1a1a1a; }\n.role { font-weight: 500; color: #555; margin-top: 2px; font-size: 15px; }\n.contact { text-align: right; font-size: 12.5px; line-height: 1.5; }\n.contact a { color: #0a0a0a; text-decoration: none; border-bottom: 1px dotted #bbb; }\n.section { margin-top: 12px; padding-top: 4px; }\n.section:first-child { padding-top: 0; }\n.section h2 { font-size: 15px; letter-spacing: 0.5px; text-transform: uppercase; margin: 0 0 8px; color: #2c5aa0; font-weight: 700; border-bottom: 1px solid #2c5aa0; padding-bottom: 2px; display: inline-block; }\n.item { margin-top: 8px; padding: 6px; background: #fafbfc; border-left: 3px solid #2c5aa0; border-radius: 0 4px 4px 0; }\n.item .meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }\n.item .meta .left { font-weight: 600; flex: 1; margin-right: 16px; }\n.item .meta .right { font-size: 13px; color: #555; font-weight: 500; white-space: nowrap; }\nul { margin: 4px 0 0 16px; padding: 0; }\nli { margin: 3px 0; font-size: 12.5px; line-height: 1.3; color: #333; }\n.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; font-size: 12.5px; }\n.skill-block { margin-bottom: 6px; padding: 4px 6px; background: #f8f9fa; border-radius: 4px; border: 1px solid #e9ecef; }\n.skill-block .label { font-weight: 700; color: #2c5aa0; margin-bottom: 3px; font-size: 12px; }\n.skill-block .list { color: #444; line-height: 1.4; }\n.footnote { font-size:8px;color:#ccc; margin-top: 2px; }\n@media print {\n  .container { padding: 6mm 8mm; }\n  a { color: inherit; border: none; }\n  .header { padding: 8px; margin-bottom: 2px; }\n  .section { margin-top: 10px; padding-top: 2px; }\n  .item { margin-top: 6px; padding: 4px; }\n  .skills { gap: 6px 12px; }\n  .skill-block { margin-bottom: 4px; padding: 3px 4px; }\n  body { page-break-inside: avoid; }\n  .container { page-break-inside: avoid; }\n}\n</style>\n</head>\n<body>\n<div class=\"container\">\n  <div class=\"header\">\n    <div>\n      <h1>Drake Olejniczak</h1>\n      <div class=\"role\">Target Role</div>\n    </div>\n    <div class=\"contact\">\n      <div>(734) 645-5355</div>\n      <div><a href=\"mailto:Drake.Olejniczak@gmail.com\">Drake.Olejniczak@gmail.com</a></div>\n      <div>Kalamazoo, MI</div>\n      <div><a href=\"https://github.com/Doogan1\">GitHub</a> &nbsp;•&nbsp; <a href=\"https://www.linkedin.com/in/drake-olejniczak/\">LinkedIn</a> &nbsp;•&nbsp; <a href=\"https://sites.google.com/view/drake-olejniczak/home\">Portfolio</a></div>\n    </div>\n  </div>\n\n  <div class=\"section\">\n    <h2>Summary</h2>\n    <p>Data engineer with hands-on experience designing ETL pipelines, building data integrations, and operationalizing data products for public-sector and research environments. Proven record implementing durable automation, cleaning and normalizing heterogeneous sources, and enabling reporting and analytics for stakeholders.</p>\n  </div>\n\n  <div class=\"section\">\n    <h2>Experience</h2>\n    \n        <div class=\"item\">\n          <div class=\"meta\">\n            <div class=\"left\">Van Buren County – Department of Digital Information — Digital Solutions Specialist</div>\n            <div class=\"right\">2024 – Present</div>\n          </div>\n          <ul><li>Designed and implemented ETL pipelines and data pipelines for cleaning, deduplication, and integration with BS&A and Azure SQL to populate centralized county data stores.</li><li>Migrated county web infrastructure from CivicPlus to WordPress and replaced fragmented Airtable workflows with a unified PostgreSQL/PostGIS County Knowledge Base, designing schemas to support people, departments, roles, and content.</li><li>Built durable automations combining workflow tools (Jotform, Power Automate) with LLM APIs to classify and route requests (FOIA router), reducing manual triage and improving processing speed and accuracy.</li><li>Enabled near real-time dashboards (Looker Studio) and department tracking by automating ingestion, cleanup, and synchronization between WordPress, Google Sheets, and databases using Python and Google Apps Script.</li></ul>\n        </div>\n        \n\n        <div class=\"item\">\n          <div class=\"meta\">\n            <div class=\"left\">Freelance — AI/Data Annotation Consultant</div>\n            <div class=\"right\">2024</div>\n          </div>\n          <ul><li>Evaluated and coached generative models on mathematical reasoning and coding dialogues, improving reliability and informing data labeling strategies used to tune model behavior.</li><li>Applied systematic review and annotation workflows to produce higher-quality training data and feedback loops for model improvement.</li></ul>\n        </div>\n        \n  </div>\n\n  <div class=\"section\">\n    <h2>Selected Projects</h2>\n    \n        <div class=\"item\">\n          <div class=\"meta\">\n            <div class=\"left\">FOIA Smart Automation Router (Van Buren County)</div>\n            <div class=\"right\">2024</div>\n          </div>\n          <ul><li>Integrated Jotform workflows with LLM APIs to automatically analyze, classify, and route FOIA requests to appropriate departments, embedding models into a durable automation pipeline.</li><li>Reduced manual triage and improved processing speed/accuracy by building reproducible ETL-style workflows and validation checkpoints to ensure correct routing and logging.</li></ul>\n        </div>\n        \n\n        <div class=\"item\">\n          <div class=\"meta\">\n            <div class=\"left\">AI Users Group Survey Dashboard</div>\n            <div class=\"right\">2024</div>\n          </div>\n          <ul><li>Built an end-to-end workflow connecting Jotform → Google Sheets → Google Apps Script → Looker Studio to enable near-real-time data flow and interactive dashboards for stakeholders.</li><li>Automated extraction, cleaning, and normalization of multi-select survey fields into long-table structures to support robust analysis and reduce manual processing time.</li></ul>\n        </div>\n        \n\n        <div class=\"item\">\n          <div class=\"meta\">\n            <div class=\"left\">Van Buren County Website Modernization</div>\n            <div class=\"right\">2024–2025</div>\n          </div>\n          <ul><li>Led migration from CivicPlus to a custom WordPress environment and implemented plugin-based architectures to enable structured data access and reduce manual publishing.</li><li>Automated bi-directional synchronization between WordPress, Google Sheets, and Airtable using Python scripts and Google Apps Script, improving data reliability for downstream analytics.</li></ul>\n        </div>\n        \n  </div>\n\n  <div class=\"section\">\n    <h2>Technical Skills</h2>\n    <div class=\"skills\">\n      <div class=\"skill-block\"><div class=\"label\">Other</div><div class=\"list\"><ul><li>Python (Pandas, NumPy, scikit-learn), SQL, ETL Pipelines</li><li>LLM Integration (OpenAI), Smart Automations (Jotform, Power Automate), Prompt Engineering</li><li>Azure SQL, PostgreSQL/PostGIS, Looker Studio</li><li>WordPress/PHP/MySQL, API Integration</li><li>Data Pipeline Development, Data Architecture</li><li>Google Apps Script, Google Sheets Automation</li><li>Jotform, Power Automate</li><li>Technical Documentation, Training & Stakeholder Engagement</li></ul></div></div>\n    </div>\n  </div>\n</div>\n</body>\n</html>\n",
+      "cover_letter": "I’m excited to apply for Data Engineer I on the Glassdoor team. I’m a data engineer with hands-on experience designing ETL pipelines, cleaning and normalizing heterogeneous sources, and operationalizing data products to enable reporting and analytics. In my current role at Van Buren County I designed and implemented pipelines to clean, deduplicate, and integrate data into centralized stores (Azure SQL, PostgreSQL/PostGIS), built durable automations that combine workflow tools with APIs, and enabled near-real-time dashboards by automating ingestion and synchronization. Those efforts required data modeling, pipeline reliability, and practical coding in Python and SQL—skills I’m eager to apply at scale on Glassdoor’s data platform.\n\nI have direct experience building ETL-style workflows, defining schema changes to support downstream analytics, and producing documentation and training for stakeholders. Projects such as the FOIA Smart Automation Router and the AI Users Group Survey Dashboard reflect my approach: reproducible pipelines with validation checkpoints, clear data models, and automated ingestion that reduces manual work and improves trust in the data. I’ve worked with orchestration-style patterns using durable scripts and workflow tools, and I’m comfortable learning and applying technologies like Snowflake/Redshift, Airflow, and Spark as needed.\n\nI’m drawn to Glassdoor’s mission of helping people find better career outcomes and I’d welcome the chance to contribute to trusted, scalable data pipelines that power insights for job seekers and product teams. Thank you for considering my application—I look forward to the possibility of discussing how my background in data pipeline development, automation, and stakeholder-facing documentation can support your data engineering needs.",
+      "experience_ids": [
+        "van-buren-county-digital-information",
+        "ai-task-force-meetings",
+        "freelance-ai-data-annotation"
+      ],
+      "project_ids": [
+        "foia-smart-automation-router",
+        "ai-users-group-survey-dashboard",
+        "van-buren-county-website-modernization"
+      ],
+      "skill_labels": [
+        "Python (Pandas, NumPy, scikit-learn), SQL, ETL Pipelines",
+        "LLM Integration (OpenAI), Smart Automations (Jotform, Power Automate), Prompt Engineering",
+        "Azure SQL, PostgreSQL/PostGIS, Looker Studio",
+        "WordPress/PHP/MySQL, API Integration",
+        "Data Pipeline Development, Data Architecture",
+        "Google Apps Script, Google Sheets Automation",
+        "Jotform, Power Automate",
+        "Technical Documentation, Training & Stakeholder Engagement"
+      ],
+      "reasoning_effort": "minimal",
+      "verbosity": "medium",
+      "resume_token_count": 1158,
+      "cover_letter_token_count": 327,
+      "experience_plan": [
+        {
+          "id": "van-buren-county-digital-information",
+          "bullets": [
+            "Designed and implemented ETL pipelines and data pipelines for cleaning, deduplication, and integration with BS&A and Azure SQL to populate centralized county data stores.",
+            "Migrated county web infrastructure from CivicPlus to WordPress and replaced fragmented Airtable workflows with a unified PostgreSQL/PostGIS County Knowledge Base, designing schemas to support people, departments, roles, and content.",
+            "Built durable automations combining workflow tools (Jotform, Power Automate) with LLM APIs to classify and route requests (FOIA router), reducing manual triage and improving processing speed and accuracy.",
+            "Enabled near real-time dashboards (Looker Studio) and department tracking by automating ingestion, cleanup, and synchronization between WordPress, Google Sheets, and databases using Python and Google Apps Script."
+          ]
+        },
+        {
+          "id": "ai-task-force-meetings",
+          "bullets": [
+            "Facilitated cross-department collaboration to identify practical AI and automation opportunities and prioritized pilots that integrated data pipelines with downstream analytics and operational workflows.",
+            "Developed governance, documentation, and training materials to guide ethical AI adoption and to upskill staff on prompt engineering, data practices, and pipeline usage for non-technical stakeholders.",
+            "Synthesized technical and policy discussions into actionable next steps for leadership, accelerating deployment of data-driven pilots and ensuring alignment with data architecture and privacy considerations."
+          ]
+        },
+        {
+          "id": "freelance-ai-data-annotation",
+          "bullets": [
+            "Evaluated and coached generative models on mathematical reasoning and coding dialogues, improving reliability and informing data labeling strategies used to tune model behavior.",
+            "Applied systematic review and annotation workflows to produce higher-quality training data and feedback loops for model improvement."
+          ]
+        }
+      ],
+      "project_plan": [
+        {
+          "id": "foia-smart-automation-router",
+          "bullets": [
+            "Integrated Jotform workflows with LLM APIs to automatically analyze, classify, and route FOIA requests to appropriate departments, embedding models into a durable automation pipeline.",
+            "Reduced manual triage and improved processing speed/accuracy by building reproducible ETL-style workflows and validation checkpoints to ensure correct routing and logging."
+          ]
+        },
+        {
+          "id": "ai-users-group-survey-dashboard",
+          "bullets": [
+            "Built an end-to-end workflow connecting Jotform → Google Sheets → Google Apps Script → Looker Studio to enable near-real-time data flow and interactive dashboards for stakeholders.",
+            "Automated extraction, cleaning, and normalization of multi-select survey fields into long-table structures to support robust analysis and reduce manual processing time."
+          ]
+        },
+        {
+          "id": "van-buren-county-website-modernization",
+          "bullets": [
+            "Led migration from CivicPlus to a custom WordPress environment and implemented plugin-based architectures to enable structured data access and reduce manual publishing.",
+            "Automated bi-directional synchronization between WordPress, Google Sheets, and Airtable using Python scripts and Google Apps Script, improving data reliability for downstream analytics."
+          ]
+        }
+      ],
+      "skills_plan": [
+        {
+          "id": "programming_data",
+          "label": "Python (Pandas, NumPy, scikit-learn), SQL, ETL Pipelines"
+        },
+        {
+          "id": "ai_automation",
+          "label": "LLM Integration (OpenAI), Smart Automations (Jotform, Power Automate), Prompt Engineering"
+        },
+        {
+          "id": "web_cloud",
+          "label": "Azure SQL, PostgreSQL/PostGIS, Looker Studio"
+        },
+        {
+          "id": "web_cloud_2",
+          "label": "WordPress/PHP/MySQL, API Integration"
+        },
+        {
+          "id": "programming_data_2",
+          "label": "Data Pipeline Development, Data Architecture"
+        },
+        {
+          "id": "programming_data_3",
+          "label": "Google Apps Script, Google Sheets Automation"
+        },
+        {
+          "id": "ai_automation_2",
+          "label": "Jotform, Power Automate"
+        },
+        {
+          "id": "communication",
+          "label": "Technical Documentation, Training & Stakeholder Engagement"
+        }
+      ]
+    },
+    {
+      "id": "target-role-2",
+      "job_title": "Indeed Data Engineer I",
+      "created_at": "2025-11-08T20:13:16Z",
+      "job_ad": "Data Engineer I job at Indeed/Glassdoor:\n\nFull job description\nOur Mission\nAs the world’s number 1 job site*, our mission is to help people get jobs. We strive to cultivate an inclusive and accessible workplace where all people feel comfortable being themselves. We're looking to grow our teams with more people who share our enthusiasm for innovation and creating the best experience for job seekers.\n\nThis role sits within Glassdoor, where professionals go to zero in on the next step in their career. Rooted in transparency and trust, we have long empowered people to make informed career decisions. We combine authentic employee voices with insights about companies and AI-driven personalization to help job seekers find roles where they can grow and thrive.\nJoin us as we make worklife better, together.\n(*Comscore, Total Visits, March 2025)\nDay to Day\nThe Data Engineer’s role is to integrate data from a variety of sources into common data domain models. The purpose is to support data and analytics activities across Glassdoor and Indeed’s global business functions. This is a technical role that involves defining changes to the data lake data model and building scalable and efficient processes to populate or modify data lake data. You will have practical data processing and data modeling experience in a “big data” environment. Also, experience in data modeling, test automation, and building reliable, trusted, and efficient data pipelines. This work contributes to our mission of helping people get jobs by providing insight into the global job market and supporting product innovation. That makes it easier for job seekers and employers to find each other.\nResponsibilities\nDesigning and implementing data pipelines (ETLs) to integrate data from a variety of sources into the Glassdoor (Indeed) Data Warehouse\nDesigning and implementing data model changes, working cross-functionally with various product and data teams\nProviding documentation, training, and consulting for data warehouse users\nParticipating in on-call rotation supporting critical business data pipelines\nSkills/Competencies\nB.S. degree in Computer Science, Computer Engineering, Electrical Engineering, Mathematics, Statistics\n1+ years of experience with big data and streaming technologies (Snowflake, Redshift, Hive, Kafka, Spark, Flink or similar technologies)\nExposure to workflow orchestration and pipeline tools such as Airflow\n2+ years coding experience (Python or Scala preferred)\nPassionate about data and learning new skills and technologies",
+      "summary": "Data-focused engineer with practical experience designing ETL pipelines, data models, and automation solutions for government and research settings. Skilled in Python-driven data pipelines, SQL-based warehouses, and building durable integrations that improve data quality and operational efficiency.",
+      "experience_ids": [
+        "van-buren-county-digital-information",
+        "ai-task-force-meetings",
+        "freelance-ai-data-annotation"
+      ],
+      "project_ids": [
+        "foia-smart-automation-router",
+        "ai-users-group-survey-dashboard",
+        "van-buren-county-website-modernization"
+      ],
+      "skill_labels": [
+        "programming_data",
+        "ai_automation",
+        "web_cloud",
+        "communication"
+      ],
+      "reasoning_effort": "minimal",
+      "verbosity": "medium",
+      "resume_token_count": 947,
+      "cover_letter_token_count": null,
+      "experience_plan": [
+        {
+          "id": "van-buren-county-digital-information",
+          "bullets": [
+            "Designed and implemented data pipelines for ingestion, cleaning, deduplication, and integration with BS&A and Azure SQL to enable reliable departmental reporting and dashboards.",
+            "Migrated county web infrastructure to a WordPress-based stack and replaced disparate Airtable workflows with a unified PostgreSQL/PostGIS County Knowledge Base, designing schemas for people, departments, roles, and content.",
+            "Built smart automations that combine workflow tools (Jotform, Power Automate) with LLM APIs to classify and route incoming requests, reducing manual triage and improving throughput.",
+            "Developed dynamic Looker Studio dashboards fed by automated ETL pipelines and trained staff on usage, improving cross-department data access and decision-making."
+          ]
+        },
+        {
+          "id": "ai-task-force-meetings",
+          "bullets": [
+            "Facilitated cross-department collaboration to identify and prioritize AI and automation pilots, translating operational needs into technical requirements for data pipelines and integrations.",
+            "Authored governance frameworks and documentation to guide ethical, transparent AI adoption and supported technical teams with standards for data handling and model integration.",
+            "Synthesized technical discussions into actionable roadmaps and provided training to accelerate departmental adoption of shared data products and automated workflows."
+          ]
+        },
+        {
+          "id": "freelance-ai-data-annotation",
+          "bullets": [
+            "Evaluated and coached generative models on mathematical reasoning and coding dialogues, improving model reliability and informing data labeling and prompt strategies used in production pipelines.",
+            "Applied iterative testing and feedback loops to validate model outputs and reduce failure modes in downstream automated workflows."
+          ]
+        }
+      ],
+      "project_plan": [
+        {
+          "id": "foia-smart-automation-router",
+          "bullets": [
+            "Integrated Jotform workflows with LLM APIs to automatically analyze, classify, and route public records requests into departmental queues.",
+            "Implemented a durable automation pipeline that reduced manual triage and increased processing accuracy by embedding automated classification and routing logic.",
+            "Built monitoring and logging hooks to surface pipeline failures and support on-call troubleshooting."
+          ]
+        },
+        {
+          "id": "ai-users-group-survey-dashboard",
+          "bullets": [
+            "Designed an end-to-end workflow connecting Jotform → Google Sheets → Google Apps Script → Looker Studio to enable near-real-time survey data ingestion and visualization.",
+            "Automated extraction and cleaning of multi-select survey fields into normalized long-table structures to support robust analysis and downstream dashboards.",
+            "Created filterable, role-based dashboards to surface participation metrics and trends for stakeholders."
+          ]
+        },
+        {
+          "id": "van-buren-county-website-modernization",
+          "bullets": [
+            "Led migration from CivicPlus to a WordPress environment with custom plugins and a unified PostgreSQL (PostGIS) backend, standardizing content and enabling structured data access.",
+            "Automated ingestion, cleanup, and bi-directional synchronization between WordPress, Google Sheets, and Airtable using Python scripts and Google Apps Script to cut reconciliation time and improve data reliability.",
+            "Designed plugin-backed APIs and database schemas to support downstream analytics and reporting use cases."
+          ]
+        }
+      ],
+      "skills_plan": [
+        {
+          "label": "programming_data"
+        },
+        {
+          "label": "ai_automation"
+        },
+        {
+          "label": "web_cloud"
+        },
+        {
+          "label": "communication"
+        }
+      ],
+      "resume_path": "target-role-2/resume.html",
+      "cover_letter_path": "target-role-2/cover_letter.txt"
+    }
+  ]
+}

@@ -1,9 +1,11 @@
 __pycache__/
 *.pyc
 dist/
+data/generated/
 .DS_Store
 .vscode/
 .idea/
 .venv/
 *.html
 *.pdf
+.env
