@@ -32,10 +32,12 @@ def assemble_experience(data, job):
     return "\n".join(items)
 
 def assemble_projects(data, job):
-    names = set(job.get("selected_projects", []))
+    selections = set(job.get("selected_projects", []))
     items = []
     for p in data["projects"]:
-        if p["name"] not in names:
+        pid = p.get("id")
+        include = p["name"] in selections or (pid and pid in selections)
+        if not include:
             continue
         items.append(f'''
         <div class="item">
@@ -54,7 +56,16 @@ def assemble_skills(data, job):
     for key in order:
         label = label_map.get(key, key.title())
         items = data["skills"].get(key, [])
-        blocks.append(f'<div class="skill-block"><div class="label">{label}</div><div class="list">{", ".join(items)}</div></div>')
+        labels = []
+        for item in items:
+            if isinstance(item, dict):
+                labels.append(item.get("label", "").strip())
+            else:
+                labels.append(str(item).strip())
+        labels = [l for l in labels if l]
+        blocks.append(
+            f'<div class="skill-block"><div class="label">{label}</div><div class="list">{", ".join(labels)}</div></div>'
+        )
     return "\n".join(blocks)
 
 def links_html(contact):

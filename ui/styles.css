@@ -1,0 +1,203 @@
+.view-container {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f6f7fb;
+  color: #1f2933;
+  margin: 0;
+}
+
+.app-header {
+  background: #1f2933;
+  color: #fff;
+  padding: 1.5rem 2rem;
+}
+
+.tagline {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #e6e9f1;
+}
+
+.tab-button {
+  border: none;
+  background: #eef1f8;
+  color: #293845;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background: #4c6ef5;
+  color: #fff;
+}
+
+.app-footer {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #5f6b7c;
+}
+
+.pane {
+  background: #fff;
+  border: 1px solid #dde2eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 14px rgba(31, 41, 51, 0.06);
+}
+
+.pane h2 {
+  margin-top: 0;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #cfd6e4;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+button.primary {
+  background: #1f7aec;
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button.secondary {
+  background: #edf1f8;
+  color: #1f2933;
+  border: 1px solid #c7cfdd;
+  padding: 0.65rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list button {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #d0d7e5;
+  border-radius: 6px;
+  background: #f8f9fb;
+  cursor: pointer;
+}
+
+.list button.active {
+  background: #e4edff;
+  border-color: #4c6ef5;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  background: #e9effd;
+  color: #1c3faa;
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  margin: 0.15rem;
+}
+
+.skills-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+}
+
+.skills-checkboxes label {
+  font-weight: 400;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid #e2e7f3;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+table thead {
+  background: #f0f4ff;
+}
+
+.status-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #2d7a46;
+}
+
+.error-text {
+  color: #c62828;
+}
+

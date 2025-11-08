@@ -4,9 +4,18 @@
     "phone": "(734) 645-5355",
     "email": "Drake.Olejniczak@gmail.com",
     "links": [
-      {"label": "GitHub", "url": "https://github.com/Doogan1"},
-      {"label": "LinkedIn", "url": "https://www.linkedin.com/in/drake-olejniczak/"},
-      {"label": "Portfolio", "url": "https://sites.google.com/view/drake-olejniczak/home"}
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Doogan1"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/drake-olejniczak/"
+      },
+      {
+        "label": "Portfolio",
+        "url": "https://sites.google.com/view/drake-olejniczak/home"
+      }
     ],
     "location": "Kalamazoo, MI"
   },
@@ -16,6 +25,7 @@
   },
   "experience": [
     {
+      "id": "van-buren-county-digital-information",
       "company": "Van Buren County – Department of Digital Information",
       "title": "Digital Solutions Specialist",
       "dates": "2024 – Present",
@@ -28,6 +38,7 @@
       ]
     },
     {
+      "id": "purdue-university-fort-wayne",
       "company": "Purdue University Fort Wayne – Dept. of Mathematical Sciences",
       "title": "Assistant Professor",
       "dates": "2019 – 2023",
@@ -37,6 +48,7 @@
       ]
     },
     {
+      "id": "freelance-ai-data-annotation",
       "company": "Freelance",
       "title": "AI/Data Annotation Consultant",
       "dates": "2024",
@@ -47,34 +59,116 @@
   ],
   "projects": [
     {
+      "id": "foia-smart-automation-router",
       "name": "FOIA Smart Automation Router (Van Buren County)",
       "year": "2024",
+      "description_short": "LLM-assisted workflow to triage FOIA requests and route them to the correct county department.",
       "bullets": [
         "Integrated Jotform workflows with AI APIs for automatic request analysis, classification, and departmental routing.",
         "Reduced manual triage and improved processing speed/accuracy by embedding LLMs into a durable automation pipeline."
+      ],
+      "skills_used": [
+        "python",
+        "llm-integration",
+        "smart-automations",
+        "prompt-engineering",
+        "azure-sql-looker"
+      ],
+      "linked_experience": [
+        "van-buren-county-digital-information"
       ]
     },
     {
+      "id": "comedy-bang-network-explorer",
       "name": "Comedy Bang! Bang! Network Explorer (Independent)",
       "year": "2023",
+      "description_short": "Analytics pipeline and visualization exploring 700+ podcast guests with graph insights surfaced in a web UI.",
       "bullets": [
         "End-to-end pipeline from web scraping → graph analysis (Python/NetworkX) → interactive visualization (Django APIs + React/D3).",
         "Demonstrated rapid prototyping of data products that combine ML/analytics with intuitive, user-facing interfaces."
-      ]
+      ],
+      "skills_used": [
+        "python",
+        "react-django",
+        "sql"
+      ],
+      "linked_experience": []
     },
     {
+      "id": "preferential-attachment-demo",
       "name": "Preferential Attachment Interactive Demo (Independent)",
       "year": "2023",
+      "description_short": "Interactive teaching tool to show how preferential attachment shapes large network growth.",
       "bullets": [
         "Visualization of network growth dynamics with adjustable parameters for classroom and outreach contexts.",
         "Optimized rendering and UX to handle large simulated networks in the browser."
+      ],
+      "skills_used": [
+        "python",
+        "react-django",
+        "teaching-training"
+      ],
+      "linked_experience": [
+        "purdue-university-fort-wayne"
       ]
     }
   ],
   "skills": {
-    "programming_data": ["Python (Pandas, NumPy, Scikit-learn, TensorFlow)", "SQL", "MATLAB"],
-    "ai_automation": ["LLM integration (OpenAI API, Chatbase)", "Smart Automations (Power Automate, Zapier, Jotform)", "Prompt Engineering"],
-    "web_cloud": ["WordPress/PHP/MySQL", "React/Redux, Django", "Azure SQL, Looker Studio"],
-    "communication": ["Teaching & training", "Public speaking", "Technical documentation"]
+    "programming_data": [
+      {
+        "id": "python",
+        "label": "Python (Pandas, NumPy, scikit-learn)"
+      },
+      {
+        "id": "sql",
+        "label": "SQL"
+      },
+      {
+        "id": "matlab",
+        "label": "MATLAB"
+      }
+    ],
+    "ai_automation": [
+      {
+        "id": "llm-integration",
+        "label": "LLM Integration (OpenAI API, Chatbase)"
+      },
+      {
+        "id": "smart-automations",
+        "label": "Smart Automations (Power Automate, Zapier, Jotform)"
+      },
+      {
+        "id": "prompt-engineering",
+        "label": "Prompt Engineering"
+      }
+    ],
+    "web_cloud": [
+      {
+        "id": "wordpress-stack",
+        "label": "WordPress/PHP/MySQL"
+      },
+      {
+        "id": "react-django",
+        "label": "React/Redux, Django"
+      },
+      {
+        "id": "azure-sql-looker",
+        "label": "Azure SQL, Looker Studio"
+      }
+    ],
+    "communication": [
+      {
+        "id": "teaching-training",
+        "label": "Teaching & Training"
+      },
+      {
+        "id": "public-speaking",
+        "label": "Public Speaking"
+      },
+      {
+        "id": "technical-documentation",
+        "label": "Technical Documentation"
+      }
+    ]
   }
 }
