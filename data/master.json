@@ -1,0 +1,80 @@
+{
+  "name": "Drake Olejniczak",
+  "contact": {
+    "phone": "(734) 645-5355",
+    "email": "Drake.Olejniczak@gmail.com",
+    "links": [
+      {"label": "GitHub", "url": "https://github.com/Doogan1"},
+      {"label": "LinkedIn", "url": "https://www.linkedin.com/in/drake-olejniczak/"},
+      {"label": "Portfolio", "url": "https://sites.google.com/view/drake-olejniczak/home"}
+    ],
+    "location": "Kalamazoo, MI"
+  },
+  "summary": {
+    "default": "Mathematician-turned AI & automation developer building production-grade systems that blend machine learning, LLMs, and workflow automation to modernize public-sector services.",
+    "schupan": "AI/automation developer who prototypes and deploys LLM-powered systems end-to-end — from data ingestion and ETL to interactive apps — with a track record of measurable operational improvements in government."
+  },
+  "experience": [
+    {
+      "company": "Van Buren County – Department of Digital Information",
+      "title": "Digital Solutions Specialist",
+      "dates": "2024 – Present",
+      "bullets": [
+        "Modernized county web infrastructure by migrating from CivicPlus to WordPress; built custom plugins for staff directories, document libraries, and department templates.",
+        "Designed and deployed AI-powered chatbots (Marty for resident services, Agenda Genie for commission packets, Map Buddy for GIS navigation).",
+        "Built smart automations that combine workflow tools with AI APIs — e.g., a FOIA router integrating Jotform and OpenAI to classify and route requests to departments.",
+        "Developed data pipelines for cleaning, deduplication, and integration with BS&A and Azure SQL; enabled dynamic dashboards (Looker Studio) and departmental tracking.",
+        "Led staff training on AI literacy, prompt engineering, and digital tools to build county-wide capacity for innovation."
+      ]
+    },
+    {
+      "company": "Purdue University Fort Wayne – Dept. of Mathematical Sciences",
+      "title": "Assistant Professor",
+      "dates": "2019 – 2023",
+      "bullets": [
+        "Designed and taught courses in calculus, graph theory, mathematical modeling, and network science with consistently top teaching evaluations.",
+        "Published 13 peer-reviewed papers and delivered 25+ conference presentations and invited talks in combinatorics and graph theory."
+      ]
+    },
+    {
+      "company": "Freelance",
+      "title": "AI/Data Annotation Consultant",
+      "dates": "2024",
+      "bullets": [
+        "Evaluated and coached generative AI models in mathematical reasoning and coding dialogues to improve reliability and safety."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "FOIA Smart Automation Router (Van Buren County)",
+      "year": "2024",
+      "bullets": [
+        "Integrated Jotform workflows with AI APIs for automatic request analysis, classification, and departmental routing.",
+        "Reduced manual triage and improved processing speed/accuracy by embedding LLMs into a durable automation pipeline."
+      ]
+    },
+    {
+      "name": "Comedy Bang! Bang! Network Explorer (Independent)",
+      "year": "2023",
+      "bullets": [
+        "End-to-end pipeline from web scraping → graph analysis (Python/NetworkX) → interactive visualization (Django APIs + React/D3).",
+        "Demonstrated rapid prototyping of data products that combine ML/analytics with intuitive, user-facing interfaces."
+      ]
+    },
+    {
+      "name": "Preferential Attachment Interactive Demo (Independent)",
+      "year": "2023",
+      "bullets": [
+        "Visualization of network growth dynamics with adjustable parameters for classroom and outreach contexts.",
+        "Optimized rendering and UX to handle large simulated networks in the browser."
+      ]
+    }
+  ],
+  "skills": {
+    "programming_data": ["Python (Pandas, NumPy, Scikit-learn, TensorFlow)", "SQL", "MATLAB"],
+    "ai_automation": ["LLM integration (OpenAI API, Chatbase)", "Smart Automations (Power Automate, Zapier, Jotform)", "Prompt Engineering"],
+    "web_cloud": ["WordPress/PHP/MySQL", "React/Redux, Django", "Azure SQL, Looker Studio"],
+    "communication": ["Teaching & training", "Public speaking", "Technical documentation"]
+  }
+}

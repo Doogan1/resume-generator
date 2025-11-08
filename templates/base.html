@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{name}} – Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../themes/default.css">
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div>
+      <h1>{{name}}</h1>
+      <div class="role">{{target_title}}</div>
+    </div>
+    <div class="contact">
+      <div>{{phone}}</div>
+      <div><a href="mailto:{{email}}">{{email}}</a></div>
+      <div>{{location}}</div>
+      <div>{{links_html}}</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Experience</h2>
+    {{experience_html}}
+  </div>
+
+  <div class="section">
+    <h2>Selected Projects</h2>
+    {{projects_html}}
+  </div>
+
+  <div class="section">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      {{skills_html}}
+    </div>
+  </div>
+</div>
+</body>
+</html>

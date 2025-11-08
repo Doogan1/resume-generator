@@ -1,0 +1,13 @@
+{
+  "title": "Target Role Title",
+  "summary_key": "default",
+  "selected_projects": [],
+  "show_freelance": true,
+  "skills_order": ["programming_data", "ai_automation", "web_cloud", "communication"],
+  "skills_label_map": {
+    "programming_data": "Programming & Data Science",
+    "ai_automation": "AI & Automation",
+    "web_cloud": "Web & Cloud",
+    "communication": "Collaboration & Communication"
+  }
+}
